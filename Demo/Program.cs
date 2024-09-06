@@ -41,7 +41,7 @@ namespace Demo
 
             app.MapControllerRoute(
                 name: "default",
-                pattern: /*urlpath*/ "{controller  }/{action  }/{id:int?}"
+                pattern: /*urlpath*/ "{controller}/{action}/{id:int?}"
                 //defaults: new {controller ="Movies" , action = "Index"}
 
                 );

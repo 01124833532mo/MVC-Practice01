@@ -20,38 +20,44 @@ namespace Demo.Controllers
         {
             return $"All Movies";
         }
+
         [HttpGet]
 
-        public IActionResult GetMovie(int id)
+        // Get: baseURL/Movies/GetMovie/{id} => 1. Route Data   -> Segment
+        // Get: baseURL/Movies/GetMovie?id   => 2. Query string -> QueryParam
+        public IActionResult/*ContentResult*/ GetMovie(int id, string name, Employee employee)
         {
+
+            /// if (id == 0)
+            ///     return new BadRequestResult();
+            /// else if (id == 100)
+            ///     return new NotFoundResult();
+            ///
+            /// ContentResult result = new ContentResult();
+            /// 
+            /// result.Content = $"<h1>Movie With Id: {id}, Name: {name}</h1>";
+            /// 
+            /// result.ContentType = "text/html";
+            /// 
+            /// //result.StatusCode = 404;
+            /// 
+            /// return result;
+            /// 
             if (id == 0)
-            {
-                //return bad request
                 return BadRequest();
-            }
-            if (id == 100)
-            {
-                // return notfindresult()
+            else if (id == 100)
                 return NotFound();
-            }
-            //ContentResult result = new ContentResult();
-            //result.Content = $"<h1> movie with id :{id} </h1>";
-            //result.ContentType = "text/html";
-            //result.StatusCode = 200;
-
-
-            return Content($"<h1> movie with id :{id} </h1>", "text/html");
-
+            return Content($"<h1>Movie With Id: {id}, Name: {name}</h1>", "text/html");
         }
 
-        public IActionResult hamada()
-        {
-            RedirectResult result = new RedirectResult(_configuration["Wazuf"] ?? string.Empty);
-            RedirectResult redirect = new RedirectResult($"{_configuration["BaseURL"]}/Movies/GetMovie/10");
-            RedirectToActionResult redirectToActionResult = new RedirectToActionResult(nameof(GetMovie), "Movies", new { id = 10 });
-            
-                        return result;
-        }
+        //public IActionResult hamada()
+        //{
+        //    RedirectResult result = new RedirectResult(_configuration["Wazuf"] ?? string.Empty);
+        //    RedirectResult redirect = new RedirectResult($"{_configuration["BaseURL"]}/Movies/GetMovie/10");
+        //    RedirectToActionResult redirectToActionResult = new RedirectToActionResult(nameof(GetMovie), "Movies", new { id = 10 });
+
+        //                return result;
+        //}
 
         [HttpGet]
         //[AcceptVerbs("Get","Post")]
