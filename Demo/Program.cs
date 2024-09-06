@@ -28,20 +28,10 @@ namespace Demo
             app.UseRouting();
 
 
-            app.MapGet("/", async context =>
-            {
-                await context.Response.WriteAsync("Hello world");
-            });
-
-            app.MapGet("/XX{id}", async context =>
-            {
-                await context.Response.WriteAsync($"id = {context.Request.RouteValues["id"]}");
-            });
-
 
             app.MapControllerRoute(
                 name: "default",
-                pattern: /*urlpath*/ "{controller}/{action}/{id:int?}"
+                pattern: /*urlpath*/ "{controller=Home}/{action=Index}/{id:int?}"
                 //defaults: new {controller ="Movies" , action = "Index"}
 
                 );
