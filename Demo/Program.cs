@@ -24,9 +24,10 @@ namespace Demo
                 app.UseStatusCodePagesWithReExecute("/Home/Error");
             }
 
-
+      
             app.UseRouting();
 
+            app.UseStaticFiles();
 
 
             app.MapControllerRoute(
