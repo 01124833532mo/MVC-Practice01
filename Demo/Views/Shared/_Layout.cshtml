@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿@addTagHelper *,Microsoft.AspNetCore.Mvc.TagHelpers
+<!DOCTYPE html>
 
 <html>
 <head>
@@ -14,6 +15,16 @@
 	@*Start Header*@
 	<header class="mt-5">
 		<center>
+@* 			html tag helper
+			<a href="/Home/Index" class="btn btn-primary">Home</a>
+
+ *@
+@* 
+			@Html.ActionLink("Home", "Index", "Home", null, new {@class ="btn btn-primary" });
+			@Html.BeginForm();
+			@Html.CheckBox();
+
+			<a asp-controller="Home" asp-action="Index" class="btn btn-primary">Home </a> *@
 
 			<nav>
 
