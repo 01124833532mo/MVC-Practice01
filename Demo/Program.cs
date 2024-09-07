@@ -21,6 +21,9 @@ namespace Demo
             }
             else
             {
+
+            }
+            {
                 app.UseStatusCodePagesWithReExecute("/Home/Error");
             }
 
@@ -31,7 +34,7 @@ namespace Demo
 
 
             app.MapControllerRoute(
-                name: "default",
+                name :"default",
                 pattern: /*urlpath*/ "{controller=Home}/{action=Index}/{id:int?}"
                 //defaults: new {controller ="Movies" , action = "Index"}
 

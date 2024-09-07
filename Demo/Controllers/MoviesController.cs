@@ -5,15 +5,19 @@ namespace Demo.Controllers
 {
     public class MoviesController : Controller
     {
-        private readonly IConfiguration _configuration;
+        //private readonly IConfiguration _configuration;
+        [FromServices]
+        public IConfiguration Configuration { get;  }
 
         // action : public non static object member methode inside the controller 
         //baseurl/movies/getmovie/{id}
 
-        public MoviesController(IConfiguration configuration)
-        {
-            _configuration = configuration;
-        }
+
+
+        //public MoviesController(IConfiguration configuration)
+        //{
+        //    _configuration = configuration;
+        //}
 
         [HttpGet]
         public string Index()
@@ -61,7 +65,7 @@ namespace Demo.Controllers
 
         [HttpGet]
         //[AcceptVerbs("Get","Post")]
-        public ViewResult CreateMovie()
+        public ViewResult CreateMovie([FromServices ] IConfiguration configuration)
         {
             return new ViewResult();
         }
